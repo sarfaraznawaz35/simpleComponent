@@ -1,0 +1,86 @@
+Angular 10 playlist
+
+-> Install Angualr CLI
+    npm i @angular/cli
+-> Create New Angular application
+    ng new <app-name>
+-> Run the application
+    ng serve
+
+Components
+1. Create Angular components
+    ng g c header
+
+2. How do you use Angular component
+    -> can we change the selector name? 
+       'OR' can we pass the customYes of course -> Yes of course
+    -> Use the select tag as directive
+
+3. How do you use Angular components from different module?
+    - Users module
+        -> component -> list-users
+    - Import the custom/newly created module into App Module
+    - Export the respective components that we want to use outside of the module
+
+4. Angular components communication
+    -> @Input and @Output directives
+    -> Using services
+
+4.1 @Input and @Output directives
+    -> Parent/Child -> Parent -> sending data to child
+                    -> Child -> giving back the data to Parent
+        -> list-users -> Input -> filter-users
+        -> list-users <- Output <- filter-users
+
+    -> We need to pass data from parent using [inputName]
+    -> Same need to be defined in the child component as @Input()
+
+    -> Angular components communicate Input and Output
+
+5. Angular component communicate via services
+    -> Create a services
+        -> ng g service <service-name>
+    
+    -> Implement methods which can be shared between components for sharing data
+
+6. Angular component lifecycle
+    -> Component series of states
+        -> Lifecycle hooks
+            -> ngOnChanges  -> Listen to changes in data/form/state/value change
+            -> ngOnInit     ->  On initialization of the component.
+                                everytime a component is initialized loaded and run this ngOnInit
+                                so it is on start of the component. So you use this almost 80-90%.
+                            -> http call and write subscribe in ngOnInit
+                               explanation: Whenever you do a subscription like lot of people attempt
+                               to do this, they make http call and write subscribe statements in ngOnInit
+                               common mistake: one of the commmon mistake also is that they don't do
+                               unsubscribe. So whenever you write a subscribe http call in ngOnInit
+                               make sure that you write a ngOnDestroy and you unsubscribe
+            -> ngDoCheck
+                -> ngAfterContentInit   -> If you want to wait till content initialized
+                -> ngAfterContentChecked -> check that if it is loaded   
+                -> ngAfterViewInit      -> If the view is completely rendered you can use this
+                -> ngAfterViewChecked
+            -> ngOnDestroy      ->  when you want to exit the component or whenever you navigate 
+                                    away from component you want to use ngOnDestroy 
+                -> Unsubscribe the subscription
+
+
+7. How many ways you can use component template?
+    -> templateUrl
+    -> template in the component itself
+
+    -> What are the used cases?
+        -> Notification message
+        -> alerts
+        -> quick message
+
+8. Can you include more than 1 css files in component
+    -> everycomponent comes with 1 default css/scss
+
+
+
+
+
+
+
